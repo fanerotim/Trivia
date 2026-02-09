@@ -12,3 +12,12 @@ export type TokenResponse = {
     response_message: string;
     token: string;
 }
+
+export type Category = {
+    id: number;
+    name: string;
+}
+
+export type CategoryList = {
+    trivia_categories: Category[];
+}

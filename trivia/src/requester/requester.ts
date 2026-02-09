@@ -1,9 +1,12 @@
-import { type QuestionData } from "./types";
-import { type TokenResponse } from "./types";
+import {
+    type QuestionData,
+    type TokenResponse,
+    type CategoryList
+} from "./types";
 
 export const requester = async (
     url: string
-): Promise<QuestionData[] | TokenResponse | Error> => {
+): Promise<QuestionData[] | TokenResponse | CategoryList | Error> => {
 
     const response = await fetch(url);
 
