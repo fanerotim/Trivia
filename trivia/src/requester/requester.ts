@@ -1,7 +1,7 @@
-import {
-    type QuestionData,
-    type TokenResponse,
-    type CategoryList
+import type {
+    QuestionData,
+    TokenResponse,
+    CategoryList
 } from "./types";
 
 export const requester = async (
