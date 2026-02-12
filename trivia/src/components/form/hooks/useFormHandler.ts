@@ -1,12 +1,14 @@
 import { useState } from "react";
-import type { FormValues } from "../types/types";
+
+import type { FormValues, ErrorData } from "../types/types";
+import { validator } from "../../../validator/validator";
+import { displayError } from "../utils/displayError";
 
 export const useFormHandler = (initialValues: FormValues) => {
     const [values, setValues] = useState(initialValues);
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        
-        // cast questions_count to Number 
+        // cast questions_count to number 
         let value = e.target.name === 'questions_count' ? Number(e.target.value) : e.target.value;
 
         setValues((prev) => {
@@ -14,16 +16,21 @@ export const useFormHandler = (initialValues: FormValues) => {
                 ...prev,
                 [e.target.name]: value
             }
-        })
+        });
     }
 
-    const handleSubmit = (e: React.SubmitEvent) => {
+    const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault();
-        console.log('i was called');
+
+        try {
+            validator(values);
+            // handle success case: load / redirect to a page, where user can start playing the game
+        } catch (err) {
+            displayError(err as ErrorData);
+        }
     }
 
     return {
-        values,
         handleChange,
         handleSubmit
     }

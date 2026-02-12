@@ -11,7 +11,7 @@ export const validator = (userInput: FormValues) => {
     const data = schema.safeParse(userInput);
 
     if (!data.success) {
-        const flattenedError = z.flattenError(data.error)
+        const flattenedError = z.flattenError(data.error);
         throw flattenedError;
     }
     
