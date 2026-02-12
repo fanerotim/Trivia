@@ -8,5 +8,12 @@ export const validator = (userInput: FormValues) => {
         difficulty: z.string()
     })
 
-    console.log(schema.parse(userInput));
+    const data = schema.safeParse(userInput);
+    
+    if (!data.success) {
+        const flattenedError = z.flattenError(data.error)
+        throw flattenedError;
+    }
+    
+    return data;
 }
