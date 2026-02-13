@@ -42,10 +42,10 @@ export const Form = () => {
                     onChange={handleChange}
                     name='questions_count'
                     id='questions_count'
+                    defaultValue={'default'}
                 >
                     <option
                         value="default"
-                        selected
                     >
                         Select an option
                     </option>
@@ -67,10 +67,10 @@ export const Form = () => {
                     onChange={handleChange}
                     name='category'
                     id='category'
+                    defaultValue={'default'}
                 >
                     <option
                         value="default"
-                        selected
                     >
                         Select an option
                     </option>
@@ -86,19 +86,21 @@ export const Form = () => {
                 <label
                     htmlFor='difficulty'
                 >
-                        Choose difficulty
+                    Choose difficulty
                 </label>
                 <select
                     onChange={handleChange}
                     name='difficulty'
                     id='difficulty'
+                    defaultValue={'default'}
                 >
-                    <option value="default" selected>Select an option</option>
+                    <option value="default">Select an option</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="difficult">Difficult</option>
                 </select>
             </div>
+
             <input type="submit" />
 
         </form>
