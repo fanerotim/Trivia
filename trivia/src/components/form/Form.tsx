@@ -25,10 +25,11 @@ export const Form = () => {
         categories();
     }, [])
 
+    // create an arr that will be used to display number of questions
     // set length of arr to 50, so we can then fill it up
     let arr: number[] = [];
     arr.length = 50;
-    arr.fill(1, 0, 50);
+    arr.fill(1, 9, 50);
 
 
     return (

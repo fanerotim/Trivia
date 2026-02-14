@@ -1,4 +1,4 @@
-import { requester } from "../../../requester/requester"
+import { requester } from "../../../requester/requester";
 import type { Category, CategoryList } from "../../../requester/types";
 
 export const useGetCategories = () => {
@@ -9,7 +9,6 @@ export const useGetCategories = () => {
             const response = await requester(import.meta.env.VITE_CATEGORY_LIST_URL) as CategoryList;
             return response.trivia_categories;
         } catch (err) {
-            console.log(err);
             const error = new Error();
             error.message = 'Network request failed';
             return error;
