@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import type { FormValues, ErrorData } from "../types/types";
 import { validator } from "../../../validator/validator";
 
 export const useFormHandler = (initialValues: FormValues) => {
     const [values, setValues] = useState(initialValues);
+    const navigate = useNavigate();
 
     // TODO: not final version, but a possible approach to handle error and return to form, so error component can be rendered
     const [error, setError] = useState({
@@ -45,7 +47,8 @@ export const useFormHandler = (initialValues: FormValues) => {
 
         try {
             validator(values);
-            // handle success case: load / redirect to a page, where user can start playing the game
+            // handle success case: load / redirect to a /playboard page
+            navigate('/playboard')
         } catch (err) {
             // update error state to the returned error
             setError((_) => err as ErrorData)
