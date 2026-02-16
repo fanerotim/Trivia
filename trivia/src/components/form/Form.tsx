@@ -1,9 +1,11 @@
-import './Form.scss';
 import { useEffect, useState } from 'react';
+
+import './Form.scss';
 import { useGetCategories } from './hooks/useGetCategories';
 import { type Category } from '../../requester/types';
 import type { FormValues } from './types/types';
 import { useFormHandler } from './hooks/useFormHandler';
+import { Error } from '../error/Error';
 
 const initialValues: FormValues = {
     questions_count: 0,
@@ -15,7 +17,7 @@ export const Form = () => {
 
     const [categories, setCategories] = useState<Category[]>([]);
     const { getCategories } = useGetCategories();
-    const { handleChange, handleSubmit } = useFormHandler(initialValues);
+    const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
 
     useEffect(() => {
         const categories = async () => {
@@ -30,7 +32,6 @@ export const Form = () => {
     let arr: number[] = [];
     arr.length = 50;
     arr.fill(1, 9, 50);
-
 
     return (
         <form
@@ -56,6 +57,8 @@ export const Form = () => {
                         )
                     })}
                 </select>
+
+                {error.fieldErrors.questions_count ? <Error message={error.fieldErrors.questions_count} /> : ''}
             </div>
 
             <div>
@@ -81,6 +84,9 @@ export const Form = () => {
                         )
                     })}
                 </select>
+
+                {error.fieldErrors.category ? <Error message={error.fieldErrors.category} /> : ''}
+
             </div>
 
             <div>
@@ -100,6 +106,8 @@ export const Form = () => {
                     <option value="medium">Medium</option>
                     <option value="difficult">Difficult</option>
                 </select>
+
+                {error.fieldErrors.difficulty ? <Error message={error.fieldErrors.difficulty} /> : ''}
             </div>
 
             <input type="submit" />
