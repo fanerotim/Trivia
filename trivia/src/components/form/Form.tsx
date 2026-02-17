@@ -1,26 +1,15 @@
 import './Form.scss';
 import { useGetCategories } from './hooks/useGetCategories';
-import type { FormValues } from './types/types';
 import { useFormHandler } from './hooks/useFormHandler';
 import { Error } from '../error/Error';
-
-const initialValues: FormValues = {
-    questions_count: 0,
-    category: '',
-    difficulty: ''
-}
+import { generateQuestionsArray } from './utils/generateQuestionsArray';
+import { initialValues } from './utils/initialFormValues';
 
 export const Form = () => {
 
     const { categories } = useGetCategories();
     const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
-
-    // TODO: Move this array creation away from here
-    // create an arr that will be used to display number of questions
-    // set length of arr to 50, so we can then fill it up
-    let arr: number[] = [];
-    arr.length = 50;
-    arr.fill(1, 9, 50);
+    const { numberOfQuestionsArr } = generateQuestionsArray();
 
     return (
         <form
@@ -40,7 +29,7 @@ export const Form = () => {
                     >
                         Select an option
                     </option>
-                    {arr.map((_, i) => {
+                    {numberOfQuestionsArr.map((_, i) => {
                         return (
                             <option key={i}>{i + 1}</option>
                         )
