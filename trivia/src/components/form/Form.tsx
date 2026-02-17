@@ -82,7 +82,7 @@ export const Form = () => {
                     <option value="default">Select an option</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
-                    <option value="difficult">Difficult</option>
+                    <option value="hard">Hard</option>
                 </select>
 
                 {error.fieldErrors.difficulty ? <Error message={error.fieldErrors.difficulty} /> : ''}
