@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react';
-
 import './Form.scss';
 import { useGetCategories } from './hooks/useGetCategories';
-import { type Category } from '../../requester/types';
 import type { FormValues } from './types/types';
 import { useFormHandler } from './hooks/useFormHandler';
 import { Error } from '../error/Error';
@@ -15,18 +12,10 @@ const initialValues: FormValues = {
 
 export const Form = () => {
 
-    const [categories, setCategories] = useState<Category[]>([]);
-    const { getCategories } = useGetCategories();
+    const { categories } = useGetCategories();
     const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
 
-    useEffect(() => {
-        const categories = async () => {
-            const categoryList = await getCategories() as Category[];
-            setCategories(categoryList)
-        }
-        categories();
-    }, [])
-
+    // TODO: Move this array creation away from here
     // create an arr that will be used to display number of questions
     // set length of arr to 50, so we can then fill it up
     let arr: number[] = [];
