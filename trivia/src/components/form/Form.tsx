@@ -2,14 +2,14 @@ import './Form.scss';
 import { useGetCategories } from './hooks/useGetCategories';
 import { useFormHandler } from './hooks/useFormHandler';
 import { Error } from '../error/Error';
-import { generateQuestionsArray } from './utils/generateQuestionsArray';
+import { generateQuestionsCount } from './utils/generateQuestionsCount';
 import { initialValues } from './utils/initialFormValues';
 
 export const Form = () => {
 
     const { categories } = useGetCategories();
     const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
-    const { numberOfQuestionsArr } = generateQuestionsArray();
+    const { numberOfQuestionsCount } = generateQuestionsCount();
 
     return (
         <form
@@ -29,7 +29,7 @@ export const Form = () => {
                     >
                         Select an option
                     </option>
-                    {numberOfQuestionsArr.map((_, i) => {
+                    {numberOfQuestionsCount.map((_, i) => {
                         return (
                             <option key={i}>{i + 1}</option>
                         )
