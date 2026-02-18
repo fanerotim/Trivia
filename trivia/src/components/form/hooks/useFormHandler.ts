@@ -6,8 +6,8 @@ import { queryBuilder } from "../../../query-builder/queryBuilder";
 import type { Category } from "../../../requester/types";
 
 export const useFormHandler = (initialValues: FormValues) => {
-    const [values, setValues] = useState(initialValues);
 
+    const [values, setValues] = useState(initialValues);
     const [error, setError] = useState({
         fieldErrors: {
             category: [],
