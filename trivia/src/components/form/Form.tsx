@@ -13,7 +13,7 @@ export const Form = () => {
 
     return (
         <form
-            onSubmit={handleSubmit}
+            onSubmit={(e) => handleSubmit(e, categories)} // pass categories, so we can have access to the id of the category we want to query the API for
         >
 
             <div>
