@@ -48,7 +48,8 @@ export const useFormHandler = (initialValues: FormValues) => {
             // validate user input
             validator(values);
             // build correct URL by passing user input. categories is passed, so we can filter it and obtain its id, which is used to query the API
-            queryBuilder(values, categories);
+            const questions = await queryBuilder(values, categories);
+            console.log(questions, 'logged from useFormHandler')
         } catch (err) {
             // update error state to the returned error
             setError((_) => err as ErrorData)
