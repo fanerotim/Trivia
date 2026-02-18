@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import type { FormValues, ErrorData } from "../types/types";
 import { validator } from "../../../validator/validator";
@@ -16,6 +17,8 @@ export const useFormHandler = (initialValues: FormValues) => {
         },
         formErrors: []
     } as ErrorData);
+
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         // cast questions_count to number 
@@ -49,7 +52,11 @@ export const useFormHandler = (initialValues: FormValues) => {
             validator(values);
             // build correct URL by passing user input. categories is passed, so we can filter it and obtain its id, which is used to query the API
             const questions = await queryBuilder(values, categories);
-            console.log(questions, 'logged from useFormHandler')
+            // pass questions to playboard component in location state
+            // TODO: think if this can be improved
+            navigate('/playboard', {
+                state: { questions }
+            })
         } catch (err) {
             // update error state to the returned error
             setError((_) => err as ErrorData)
