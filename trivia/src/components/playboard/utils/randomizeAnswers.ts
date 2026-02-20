@@ -3,7 +3,7 @@ import { type QuestionData } from "../../../requester/types";
 export const randomizeAnswers = (questionData: QuestionData) => {
 
     let answers: string[] = [questionData.correct_answer, ...questionData.incorrect_answers];
-    const answerCount = 4;
+    const answerCount = answers.length;
 
     for (let i = 0; i < answerCount; i++) {
         const randomNum = generateRandomNumber(answerCount);
