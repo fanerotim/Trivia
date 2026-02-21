@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import './Playboard.scss';
@@ -14,7 +14,7 @@ export const Playboard = () => {
 
     // state that represents user submitted answer: it is null when user has not answers; else it is true / false
     const [answerState, setAnswerState] = useState<AnswerState>({
-        user_answer: '',
+        userAnswer: '',
         hasAnswered: false
     });
 
@@ -32,11 +32,15 @@ export const Playboard = () => {
     // TODO: complete this functionality
     const handleClick = (userAnswer: string) => {
 
+        // block further clicks if user has answered already
+        if (answerState.hasAnswered) {
+            return;
+        }
         // update state with correct_answer
-        setAnswerState((prev) => {
+        setAnswerState((_) => {
             return {
                 hasAnswered: true,
-                user_answer: userAnswer,
+                userAnswer: userAnswer,
             }
         })
 
@@ -55,7 +59,7 @@ export const Playboard = () => {
                         <p
                             key={i}
                             onClick={() => handleClick(a)}
-                        // className={}
+                            className={a === answerState.userAnswer ? 'selected_answer' : ''}
                         >
                             {decodeHTMLEntity(a)}
                         </p>
