@@ -1,4 +1,4 @@
 export type AnswerState = {
-    user_answer: string | boolean;
+    userAnswer: string | boolean;
     hasAnswered: boolean;
 }
