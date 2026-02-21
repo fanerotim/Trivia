@@ -59,7 +59,13 @@ export const Playboard = () => {
                         <p
                             key={i}
                             onClick={() => handleClick(a)}
-                            className={a === answerState.userAnswer ? 'selected_answer' : ''}
+                            className={
+                                `${a === answerState.userAnswer
+                                    ? 'selected_answer'
+                                    : ''} 
+                                ${answerState.hasAnswered && a === correctAnswer 
+                                    ? 'correct_answer' 
+                                    : ''}`}
                         >
                             {decodeHTMLEntity(a)}
                         </p>
