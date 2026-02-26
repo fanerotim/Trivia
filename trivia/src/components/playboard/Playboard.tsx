@@ -26,7 +26,6 @@ export const Playboard = () => {
         handleNextQuestion
     } = useHandleGameState(questions)!;
 
-    // update answers state; this is not optimized, but it solves an issue whereby order of answers change if we select an answer twice
     useEffect(() => {
 
         // if there are no more questions, do not do anything
