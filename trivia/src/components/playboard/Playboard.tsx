@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
-
+import { useEffect } from 'react';
 import './Playboard.scss';
+
 import { classGenerator } from './utils/classGenerator';
+import { randomizeAnswers } from './utils/randomizeAnswers';
 import { decodeHTMLEntity } from './utils/decodeHTMLEntity';
+import { useHandleGameState } from './hooks/useHandleGameState';
 import { type QuestionData } from '../../requester/types';
 import { AnswerFeedback } from './components/AnswerFeedback';
-import { useHandleGameState } from './hooks/useHandleGameState';
-import { randomizeAnswers } from './utils/randomizeAnswers';
 
 export const Playboard = () => {
 
@@ -14,22 +15,33 @@ export const Playboard = () => {
     const location = useLocation();
     const questions: QuestionData[] = location.state.questions.results;
 
-    const { index, answers, answerState, correctAnswer, setAnswers, handleClick, handleCheckAnswer, handleNextQuestion } = useHandleGameState(questions)!;
+    const {
+        index,
+        answers,
+        answerState,
+        correctAnswer,
+        setAnswers,
+        handleClick,
+        handleCheckAnswer,
+        handleNextQuestion
+    } = useHandleGameState(questions)!;
 
-    if (questions.length == index) {
-        return;
-    }
+    // update answers state; this is not optimized, but it solves an issue whereby order of answers change if we select an answer twice
+    useEffect(() => {
 
-    // update answers state; this is not optimized, but it solves an in issue whereby order of answers change if we select an answer twice
-    if (answers.length === 0) {
-        const currentAnswers = randomizeAnswers(questions[index]);
-        setAnswers((_) => currentAnswers)
-    }
+        // if there are no more questions, do not do anything
+        if (questions[index]) {
+            const currentAnswers = randomizeAnswers(questions[index]);
+            setAnswers((_) => currentAnswers)
+        }
+
+    }, [index])
 
     return (
         <>
             <div>Welcome to playboard</div>
-            <h3>{decodeHTMLEntity(questions[index].question)}</h3>
+            {/* if no more questions there is nothing to decode; do not show anything */}
+            <h3>{questions[index] && decodeHTMLEntity(questions[index].question)}</h3>
 
             <div>
                 {answers.map((a: string, i: number) => {
