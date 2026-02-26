@@ -1,5 +1,5 @@
 export type AnswerState = {
-    userAnswer: string | boolean;
+    userAnswer: string;
     hasAnswered: boolean;
     isCorrect: boolean | null;
     isSubmitted: boolean;
