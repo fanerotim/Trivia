@@ -3,19 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { type QuestionData } from "../../../requester/types";
 import { type AnswerState } from "../types/types";
-
-const initialState = {
-    userAnswer: '',
-    hasAnswered: false,
-    isCorrect: null,
-    isSubmitted: false
-}
+import { initialState } from "../utils/initialState";
 
 export const useHandleGameState = (questions: QuestionData[]) => {
 
     // index controls the current question; when index changes, the questions switches to the next one
     const [index, setIndex] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>([])
+    const [score, setScore] = useState<number>(0);
 
     // state that represents user submitted answer: it is null when user has not answers; else it is true / false
     const [answerState, setAnswerState] = useState<AnswerState>(initialState);
@@ -25,45 +20,47 @@ export const useHandleGameState = (questions: QuestionData[]) => {
     // not the best solution, but it works for now
     const correctAnswer = questions[index] ? questions[index].correct_answer : '';
 
-    // This is a possible approach, but far from final
-    // TODO: complete this functionality
     const handleClick = (userAnswer: string) => {
 
-        // if user has already submitted their answer return; do not allow further clicks
+        // if user has already submitted their answer do not allow further answer selections;
         if (answerState.isCorrect !== null) {
             return;
         }
 
-        // update state with correct_answer
+        // update answerState by adding userAnswer
         setAnswerState((prev) => {
             return {
                 ...prev,
-                hasAnswered: true,
                 userAnswer: userAnswer,
             }
         })
     }
 
     const handleCheckAnswer = () => {
+
         setAnswerState((prev) => {
             return {
                 ...prev,
-                isCorrect: correctAnswer === answerState.userAnswer,
-                isSubmitted: true
+                isCorrect: correctAnswer === prev.userAnswer,
+                isSubmitted: true,
             }
         })
+
+        setScore((prev) => correctAnswer === answerState.userAnswer ? prev + 1 : prev);
     }
 
     const handleNextQuestion = () => {
-        // reset answerState
+        // reset answerState when we change question
         setAnswerState((_) => initialState);
-        // update index, so we can move to next question: this should be controlled by another handler for next btn; not yet added
+        // update index, so we can move to next question
         setIndex((prevIndex) => prevIndex + 1);
         // reset answers state, so answers can be updated
         setAnswers((_) => []);
 
         if (index + 1 === questions.length) {
-            navigate('/game-results')
+            navigate('/game-results', {
+                state: score
+            })
         }
     }
 
