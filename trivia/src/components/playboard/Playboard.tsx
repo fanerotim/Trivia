@@ -54,7 +54,7 @@ export const Playboard = () => {
                         </p>
                     )
                 })}
-                {answerState.hasAnswered && !answerState.isSubmitted && <button onClick={handleCheckAnswer}>Check answer</button>}
+                {answerState.userAnswer.trim() && !answerState.isSubmitted && <button onClick={handleCheckAnswer}>Check answer</button>}
                 {answerState.isSubmitted && <AnswerFeedback isCorrect={answerState.isCorrect} correctAnswer={correctAnswer} />}
                 {answerState.isSubmitted && <button onClick={handleNextQuestion}>Next question</button>}
             </div>
