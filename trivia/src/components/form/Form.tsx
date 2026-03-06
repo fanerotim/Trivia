@@ -9,7 +9,7 @@ export const Form = () => {
 
     const { categories } = useGetCategories();
     const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
-    const { numberOfQuestionsCount } = generateQuestionsCount();
+    const { questionsCount } = generateQuestionsCount();
 
     return (
         <form
@@ -29,7 +29,7 @@ export const Form = () => {
                     >
                         Select an option
                     </option>
-                    {numberOfQuestionsCount.map((_, i) => {
+                    {questionsCount.map((_, i) => {
                         return (
                             <option key={i}>{i + 1}</option>
                         )
