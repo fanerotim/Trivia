@@ -16,8 +16,8 @@ export const Select = (
             >
                 <p>Select a category</p>
                 {isSelectOpen
-                    ? <span className='select__container__close__btn'></span>
-                    : <span className='select__container__open__btn'></span>
+                    ? <span className='select__container__open__btn'></span>
+                    : <span className='select__container__close__btn'></span>
                 }
 
 

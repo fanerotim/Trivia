@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     border: 1px solid black;
-    width: fit-content;
+    width: 350px;
     padding: .1rem .7rem;
     cursor: pointer;
 
@@ -24,6 +24,7 @@
     flex-direction: column;
     gap: .5rem;
     height: 0px;
+    width: 350px;
     visibility: hidden;
     background-color: white;
     position: absolute;
