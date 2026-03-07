@@ -22,14 +22,17 @@
 .select__options__container {
     display: flex;
     flex-direction: column;
+    gap: .5rem;
     height: 0px;
-    // visibility: hidden;
+    visibility: hidden;
     background-color: white;
     position: absolute;
     overflow-y: scroll;
+    transition: height .2s, visibility .2s;
 
     &__open {
         height: 200px;
-        // visibility: visible;
+        visibility: visible;
+        transition: height .2s, visibility .2s;
     }
 }
