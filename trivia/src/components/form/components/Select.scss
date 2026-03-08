@@ -31,6 +31,21 @@
     overflow-y: scroll;
     transition: height .2s, visibility .2s;
 
+    &__option {
+        font-size: .8rem;
+        padding: .5rem 1rem;
+        background-color: white;
+        color: black;
+        transition: background-color .2s, color .2s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            transition: background-color .2s, color .2s;
+        }
+    }
+
     &__open {
         height: 200px;
         visibility: visible;
