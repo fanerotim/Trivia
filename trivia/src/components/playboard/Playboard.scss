@@ -22,3 +22,41 @@ p {
 p:hover {
     cursor: pointer;
 }
+
+.question__text {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.answers__container {
+    display: grid;
+    place-self: center;
+    grid-template-columns: repeat(2, minmax(100px, 200px));
+    gap: .5rem;
+
+    &__answer__wrapper {
+        width: 100%;
+        border: 1px solid rgb(2, 38, 82);
+    }
+}
+
+.submit__btn {
+    all: unset;
+    cursor: pointer;
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    border: 1px solid black;
+    border-radius: .1rem;
+    background-color: black;
+    color: white;
+    transition: background-color .3s, color .3s;
+
+    &:hover {
+        background-color: white;
+        color: black;
+        transition: background-color .3s, color .3s;
+    }
+}
