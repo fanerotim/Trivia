@@ -47,7 +47,8 @@
             cursor: pointer;
             box-shadow: .4rem .4rem .2rem black;
             outline: 1px solid transparent;
-            transition: box-shadow .4s, outline .4s;
+            background-color: white;
+            transition: box-shadow .4s, outline .4s, background-color .4s;
         }
     }
 }
