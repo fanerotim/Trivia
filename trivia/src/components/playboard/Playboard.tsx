@@ -7,7 +7,7 @@ import { randomizeAnswers } from './utils/randomizeAnswers';
 import { decodeHTMLEntity } from './utils/decodeHTMLEntity';
 import { useHandleGameState } from './hooks/useHandleGameState';
 import { type QuestionData } from '../../requester/types';
-import { AnswerFeedback } from './components/AnswerFeedback';
+import { AnswerFeedback } from './components/answer-feedback/AnswerFeedback';
 
 export const Playboard = () => {
 
@@ -38,8 +38,6 @@ export const Playboard = () => {
 
     return (
         <>
-            <div>Welcome to playboard</div>
-
             {/* if no more questions there is nothing to decode; do not show anything */}
             <h3
                 className='question__text'
@@ -56,7 +54,7 @@ export const Playboard = () => {
                             key={i}
                             onClick={() => handleClick(a)}
                             className={
-                                `answers__container__answer__wrapper
+                                `answers__container__answer
                                 ${classGenerator(a, answerState.userAnswer, answerState.isCorrect, answerState.isSubmitted)}
                                 `
                             }
@@ -74,7 +72,7 @@ export const Playboard = () => {
                 &&
                 <button
                     onClick={handleCheckAnswer}
-                    className='submit__btn'
+                    className='submit__btn check__answer__btn'
                 >
                     Check answer
                 </button>}
