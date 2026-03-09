@@ -1,0 +1,29 @@
+.game__results__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.game__results__summary__heading {
+    font-weight: 100;
+    font-size: 3rem;
+}
+
+.submit__btn {
+    // margin-top: 3rem;
+    width: fit-content;
+}
+
+.game__results__summary__text {
+    font-weight: 200;
+    font-size: 1.3rem;
+}
+
+.game__results__summary__correct__answers,
+.game__results__summary__total__questions {
+    padding: 0 .3rem;
+    font-weight: bold;
+    // font-size: 1rem;
+}

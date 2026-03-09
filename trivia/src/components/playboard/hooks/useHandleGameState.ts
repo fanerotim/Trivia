@@ -59,7 +59,10 @@ export const useHandleGameState = (questions: QuestionData[]) => {
 
         if (index + 1 === questions.length) {
             navigate('/game-results', {
-                state: score
+                state: {
+                    score: score,
+                    questions__count: questions.length
+                }
             })
         }
     }

@@ -1,11 +1,12 @@
+import './GameResults.scss';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export const GameResults = () => {
 
     const location = useLocation();
-    const score = location.state;
-    
+    const results = location.state;
+
     const navigate = useNavigate();
 
     const handlePlayAgain = () => {
@@ -13,10 +14,37 @@ export const GameResults = () => {
     }
 
     return (
-        <>
-            <h1>Game Over!</h1>
-            <h4>You answered {score} questions correctly!</h4>
-            <button onClick={handlePlayAgain}>Play again</button>
-        </>
+        <div
+            className='game__results__container'
+        >
+            <h1
+                className='game__results__summary__heading'
+            >
+                Great game!
+            </h1>
+            <h4
+                className='game__results__summary__text'
+            >
+                You answered
+                <span
+                    className='game__results__summary__correct__answers'
+                >
+                    {results.score}
+                </span>
+                out of
+                <span
+                    className='game__results__summary__total__questions'
+                >
+                    {results.questions__count}
+                </span>
+                questions correctly!
+            </h4>
+            <button
+                onClick={handlePlayAgain}
+                className='submit__btn'
+            >
+                Play again
+            </button>
+        </div>
     )
 }
