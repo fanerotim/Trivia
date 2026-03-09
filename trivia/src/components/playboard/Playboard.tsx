@@ -39,25 +39,64 @@ export const Playboard = () => {
     return (
         <>
             <div>Welcome to playboard</div>
-            {/* if no more questions there is nothing to decode; do not show anything */}
-            <h3>{questions[index] && decodeHTMLEntity(questions[index].question)}</h3>
 
-            <div>
+            {/* if no more questions there is nothing to decode; do not show anything */}
+            <h3
+                className='question__text'
+            >
+                {questions[index] && decodeHTMLEntity(questions[index].question)}
+            </h3>
+
+            <div
+                className='answers__container'
+            >
                 {answers.map((a: string, i: number) => {
                     return (
                         <p
                             key={i}
                             onClick={() => handleClick(a)}
-                            className={classGenerator(a, answerState.userAnswer, answerState.isCorrect, answerState.isSubmitted)}
+                            className={
+                                `answers__container__answer__wrapper
+                                ${classGenerator(a, answerState.userAnswer, answerState.isCorrect, answerState.isSubmitted)}
+                                `
+                            }
                         >
                             {decodeHTMLEntity(a)}
                         </p>
                     )
                 })}
-                {answerState.userAnswer.trim() && !answerState.isSubmitted && <button onClick={handleCheckAnswer}>Check answer</button>}
-                {answerState.isSubmitted && <AnswerFeedback isCorrect={answerState.isCorrect} correctAnswer={correctAnswer} />}
-                {answerState.isSubmitted && <button onClick={handleNextQuestion}>Next question</button>}
+
             </div>
+
+            {
+                answerState.userAnswer.trim()
+                && !answerState.isSubmitted
+                &&
+                <button
+                    onClick={handleCheckAnswer}
+                    className='submit__btn'
+                >
+                    Check answer
+                </button>}
+
+            {
+                answerState.isSubmitted
+                &&
+                <AnswerFeedback
+                    isCorrect={answerState.isCorrect}
+                    correctAnswer={correctAnswer}
+                />
+            }
+
+            {
+                answerState.isSubmitted
+                &&
+                <button
+                    onClick={handleNextQuestion}
+                    className='submit__btn'
+                >
+                    Next question
+                </button>}
         </>
     )
 }
