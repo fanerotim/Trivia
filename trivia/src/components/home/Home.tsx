@@ -1,6 +1,5 @@
 import './Home.scss';
 import { Form } from '../form/Form';
-import { Footer } from '../footer/Footer';
 import { useHandleToken } from '../../auth/useHandleToken';
 
 export const Home = () => {
@@ -10,9 +9,7 @@ export const Home = () => {
     setToken();
 
     return (
-        <div
-            className='app__container'
-        >
+        <>
             <div
                 className='home__page__text__container'
             >
@@ -29,7 +26,6 @@ export const Home = () => {
             </div>
 
             <Form />
-            <Footer />
-        </div>
+        </>
     )
 }

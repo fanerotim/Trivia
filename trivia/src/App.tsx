@@ -4,6 +4,7 @@ import './App.css';
 import { Home } from './components/home/Home';
 import { Playboard } from './components/playboard/Playboard';
 import { GameResults } from './components/game-results/GameResults';
+import { Footer } from './components/footer/Footer';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/playboard' element={<Playboard />}></Route>
         <Route path='/game-results' element={<GameResults/>}></Route>
       </Routes>
+      <Footer/>
     </>
   )
 }

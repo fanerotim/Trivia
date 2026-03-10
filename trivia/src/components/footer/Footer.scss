@@ -1,10 +1,14 @@
 .footer__container {
     background-color: black;
     width: 100vw;
-    margin: auto 0;
+    // margin: auto 0;
+    padding: 3rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
 
     &__text {
-        font-size: .9rem;
+        font-size: .8rem;
         color: white;
     }
 }
