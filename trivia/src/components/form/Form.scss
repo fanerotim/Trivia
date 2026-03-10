@@ -1,4 +1,4 @@
-.submit_btn {
+.submit__btn {
     all: unset;
     cursor: pointer;
     border: 1px solid black;
@@ -13,5 +13,22 @@
         background-color: white;
         color: black;
         transition: background-color .3s, color .3s;
+    }
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    &__form__field {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        &__label {
+            font-size: .8rem;
+            color: rgb(71, 71, 71);
+        }
     }
 }
