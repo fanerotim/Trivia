@@ -1,5 +1,5 @@
 import './Select.scss';
-import { type Category } from '../../../requester/types';
+import { type Category } from '../../../../requester/types';
 import { useSelect } from './hooks/useSelect';
 
 export const Select = (
@@ -27,7 +27,12 @@ export const Select = (
                 className={`select__options__container ${isSelectOpen ? 'select__options__container__open' : ''}`}
             >
                 {categories.map((c) => (
-                    <span key={c.id}>{c.name}</span>
+                    <span
+                        key={c.id}
+                        className={'select__options__container__option'}
+                    >
+                        {c.name}
+                    </span>
                 ))}
             </div>
         </article>
