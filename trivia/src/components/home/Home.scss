@@ -1,0 +1,18 @@
+.home__page__text__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    &__heading {
+        font-family: "Limelight", sans-serif;
+        font-size: 3rem;
+        font-weight: 100;
+        // color: rgb(0, 80, 159);
+    }
+
+    &__description {
+        font-weight: 400;
+        font-size: 1rem;
+        color: rgb(91, 91, 91);
+    }
+}

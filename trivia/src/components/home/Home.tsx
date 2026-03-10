@@ -10,7 +10,21 @@ export const Home = () => {
 
     return (
         <>
-            <h1>Welcome to Trivia</h1>
+            <div
+                className='home__page__text__container'
+            >
+                <h1
+                    className='home__page__text__container__heading'
+                >
+                    Brainy
+                </h1>
+                <p
+                    className='home__page__text__container__description'
+                >
+                    This is a small game. Pick a category, choose number of questions and select difficulty. That's all. I hope you have fun!
+                </p>
+            </div>
+
             <Form />
         </>
     )
