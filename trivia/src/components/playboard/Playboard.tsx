@@ -8,6 +8,7 @@ import { decodeHTMLEntity } from './utils/decodeHTMLEntity';
 import { useHandleGameState } from './hooks/useHandleGameState';
 import { type QuestionData } from '../../requester/types';
 import { AnswerFeedback } from './components/answer-feedback/AnswerFeedback';
+import { Error } from './components/Error/Error';
 
 export const Playboard = () => {
 
@@ -38,63 +39,72 @@ export const Playboard = () => {
 
     return (
         <>
-            {/* if no more questions there is nothing to decode; do not show anything */}
-            <h3
-                className='question__text'
-            >
-                {questions[index] && decodeHTMLEntity(questions[index].question)}
-            </h3>
+            {
+                questions.length < 1
+                    ? 
+                    <Error/>
+                    :
+                    <>
+                        {/* if no more questions there is nothing to decode; do not show anything */}
+                        <h3
+                            className='question__text'
+                        >
+                            {questions[index] && decodeHTMLEntity(questions[index].question)}
+                        </h3>
 
-            <div
-                className='answers__container'
-            >
-                {answers.map((a: string, i: number) => {
-                    return (
-                        <p
-                            key={i}
-                            onClick={() => handleClick(a)}
-                            className={
-                                `answers__container__answer
+                        <div
+                            className='answers__container'
+                        >
+                            {answers.map((a: string, i: number) => {
+                                return (
+                                    <p
+                                        key={i}
+                                        onClick={() => handleClick(a)}
+                                        className={
+                                            `answers__container__answer
                                 ${classGenerator(a, answerState.userAnswer, answerState.isCorrect, answerState.isSubmitted)}
                                 `
-                            }
-                        >
-                            {decodeHTMLEntity(a)}
-                        </p>
-                    )
-                })}
+                                        }
+                                    >
+                                        {decodeHTMLEntity(a)}
+                                    </p>
+                                )
+                            })}
 
-            </div>
+                        </div>
 
-            {
-                answerState.userAnswer.trim()
-                && !answerState.isSubmitted
-                &&
-                <button
-                    onClick={handleCheckAnswer}
-                    className='submit__btn check__answer__btn'
-                >
-                    Check answer
-                </button>}
+                        {
+                            answerState.userAnswer.trim()
+                            && !answerState.isSubmitted
+                            &&
+                            <button
+                                onClick={handleCheckAnswer}
+                                className='submit__btn check__answer__btn'
+                            >
+                                Check answer
+                            </button>}
 
-            {
-                answerState.isSubmitted
-                &&
-                <AnswerFeedback
-                    isCorrect={answerState.isCorrect}
-                    correctAnswer={correctAnswer}
-                />
+                        {
+                            answerState.isSubmitted
+                            &&
+                            <AnswerFeedback
+                                isCorrect={answerState.isCorrect}
+                                correctAnswer={correctAnswer}
+                            />
+                        }
+
+                        {
+                            answerState.isSubmitted
+                            &&
+                            <button
+                                onClick={handleNextQuestion}
+                                className='submit__btn'
+                            >
+                                Next question
+                            </button>
+                        }
+                    </>
             }
-
-            {
-                answerState.isSubmitted
-                &&
-                <button
-                    onClick={handleNextQuestion}
-                    className='submit__btn'
-                >
-                    Next question
-                </button>}
         </>
     )
 }
