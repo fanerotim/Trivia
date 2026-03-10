@@ -29,8 +29,15 @@ export const useHandleToken = () => {
         return null;
     }
 
+    const resetToken = async () => {
+        // get current token
+        sessionStorage.removeItem('token');
+        setToken();
+    }
+
     return {
         setToken,
-        getToken
+        getToken,
+        resetToken
     }
 }
