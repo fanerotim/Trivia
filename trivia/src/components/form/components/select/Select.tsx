@@ -1,9 +1,9 @@
 import './Select.scss';
-import {type SelectValues } from './types/selectValues';
+import { type SelectValues } from './types/selectValues';
 import { useSelect } from './hooks/useSelect.ts';
 
 export const Select = (
-    { values, label }: { values: SelectValues, label: string },
+    { values, label, callback }: { values: SelectValues, label: string, callback: Function },
 ) => {
 
     const {
@@ -42,7 +42,7 @@ export const Select = (
             >
                 {values.map((v) => (
                     <span
-                        onClick={() => handleSelectedOption(v.name)}
+                        onClick={() => handleSelectedOption(v.name, label, callback)}
                         key={v.id}
                         className={'select__options__container__option'}
                     >
