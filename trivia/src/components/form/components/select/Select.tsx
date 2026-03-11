@@ -1,6 +1,6 @@
 import './Select.scss';
 import {type SelectValues } from './types/selectValues';
-import { useSelect } from './hooks/useSelect';
+import { useSelect } from './hooks/useSelect.ts';
 
 export const Select = (
     { values, label }: { values: SelectValues, label: string },

@@ -3,7 +3,7 @@ import { useState } from "react";
 export const useSelect = () => {
 
     const [isSelectOpen, setIsSelectOpen] = useState(false);
-    const [optionValue, setOptionValue] = useState('Select a category');
+    const [optionValue, setOptionValue] = useState('Select an option');
 
     const handleToggle = () => {
         setIsSelectOpen((prev) => !prev);
