@@ -20,14 +20,14 @@ export const useFormHandler = (initialValues: FormValues) => {
 
     const navigate = useNavigate();
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (value: string, label: string) => {
         // cast questions_count to number 
-        let value = e.target.name === 'questions_count' ? Number(e.target.value) : e.target.value;
-
+        let receivedValue = label === 'questions_count' ? Number(value) : value;
+        
         setValues((prev) => {
             return {
                 ...prev,
-                [e.target.name]: value
+                [label]: receivedValue
             }
         });
     }
@@ -64,8 +64,8 @@ export const useFormHandler = (initialValues: FormValues) => {
     }
 
     return {
-        handleChange,
         handleSubmit,
+        handleChange,
         error
     }
 }
