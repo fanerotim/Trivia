@@ -41,10 +41,12 @@ export const Playboard = () => {
         <>
             {
                 questions.length < 1
-                    ? 
-                    <Error/>
+                    ?
+                    <Error />
                     :
-                    <>
+                    <div
+                        className='playboard__container'
+                    >
                         {/* if no more questions there is nothing to decode; do not show anything */}
                         <h3
                             className='question__text'
@@ -98,12 +100,12 @@ export const Playboard = () => {
                             &&
                             <button
                                 onClick={handleNextQuestion}
-                                className='submit__btn'
+                                className='submit__btn next__question__btn'
                             >
                                 Next question
                             </button>
                         }
-                    </>
+                    </div>
             }
         </>
     )

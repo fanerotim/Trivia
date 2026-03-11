@@ -19,15 +19,27 @@
 
 .check__answer__btn {
     margin-top: 3rem;
+    align-self: center;
+}
+
+.next__question__btn {
+    align-self: center;
 }
 
 // add class to paragraphs and target the element by class
 
+.playboard__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
 .question__text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 200;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    text-align: center;
 }
 
 .answers__container {
@@ -42,11 +54,12 @@
         background-color: rgb(255, 247, 247);
         outline: 1px solid rgb(2, 38, 82);
         font-weight: 300;
+        text-align: center;
 
         &:hover {
             cursor: pointer;
             box-shadow: .4rem .4rem .2rem black;
-            outline: 1px solid transparent;
+            // outline: 1px solid transparent;
             background-color: white;
             transition: box-shadow .4s, outline .4s, background-color .4s;
         }
@@ -60,6 +73,7 @@
     transition: background-color .5s;
 
     &:hover {
+        background-color: rgb(102, 151, 250);
         box-shadow: none;
         outline: none;
         transition: border-radius .5s;
