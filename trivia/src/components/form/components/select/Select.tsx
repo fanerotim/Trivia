@@ -1,9 +1,9 @@
 import './Select.scss';
-import { type Category } from '../../../../requester/types';
+import {type SelectValues } from './types/selectValues';
 import { useSelect } from './hooks/useSelect';
 
 export const Select = (
-    { categories, label }: { categories: Category[], label: string },
+    { values, label }: { values: SelectValues, label: string },
 ) => {
 
     const {
@@ -40,13 +40,13 @@ export const Select = (
             <div
                 className={`select__options__container ${isSelectOpen ? 'select__options__container__open' : ''}`}
             >
-                {categories.map((c) => (
+                {values.map((v) => (
                     <span
-                        onClick={() => handleSelectedOption(c.name)}
-                        key={c.id}
+                        onClick={() => handleSelectedOption(v.name)}
+                        key={v.id}
                         className={'select__options__container__option'}
                     >
-                        {c.name}
+                        {v.name}
                     </span>
                 ))}
             </div>
