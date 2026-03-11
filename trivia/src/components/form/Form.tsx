@@ -9,7 +9,7 @@ import { generateDifficultyValues } from './utils/generateDifficultyValues.ts';
 
 export const Form = () => {
 
-    const { handleSubmit, error } = useFormHandler(initialValues);
+    const { handleChange, handleSubmit, error } = useFormHandler(initialValues);
     const { categories } = useGetCategories();
     const { numberOfQuestions } = generateQuestionsCount();
     const { difficultyValues } = generateDifficultyValues();
@@ -22,6 +22,7 @@ export const Form = () => {
             <Select
                 values={categories}
                 label={'category'}
+                callback={handleChange}
             />
             <div
                 className='form__container__form__field'
@@ -35,7 +36,8 @@ export const Form = () => {
             >
                 <Select
                     values={numberOfQuestions}
-                    label={'number of questions'}
+                    label={'questions_count'}
+                    callback={handleChange}
                 />
 
                 {error.fieldErrors.category ? <Error message={error.fieldErrors.category} /> : ''}
@@ -49,6 +51,7 @@ export const Form = () => {
                 <Select
                     values={difficultyValues}
                     label={'difficulty'}
+                    callback={handleChange}
                 />
 
                 {error.fieldErrors.difficulty ? <Error message={error.fieldErrors.difficulty} /> : ''}
