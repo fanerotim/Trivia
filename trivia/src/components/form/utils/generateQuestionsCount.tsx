@@ -1,10 +1,21 @@
+import { type SelectValues } from "../components/select/types/selectValues";
+
 export const generateQuestionsCount = () => {
-    
-    let questionsCount: number[] = [];
-    questionsCount.length = 50;
-    questionsCount.fill(1, 9, 50);
+
+    const minNumberOfQuestions = 10;
+    const maxNumberOfQuestions = 50;
+    const numberOfQuestions: SelectValues = [];
+
+    for (let i = minNumberOfQuestions; i <= maxNumberOfQuestions; i++) {
+        const current = {
+            id: i,
+            name: i.toString()
+        }
+
+        numberOfQuestions.push(current);
+    }
 
     return {
-        questionsCount
+        numberOfQuestions
     };
 }
