@@ -9,9 +9,10 @@ export const useSelect = () => {
         setIsSelectOpen((prev) => !prev);
     }
 
-    const handleSelectedOption = (value: string) => {
+    const handleSelectedOption = (value: string, label: string, callback: Function) => {
         setOptionValue(value);
         handleToggle();
+        callback(value, label)
     }
 
     return {
