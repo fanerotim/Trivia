@@ -5,13 +5,22 @@ export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => 
 
     return (
         <>
-            <h1
+            <p
                 className="answer__feedback__text"
             >
                 {isCorrect
                     ? 'Well done!'
-                    : `Not quite right. Correct answer is: ${correctAnswer}`}
-            </h1>
+                    : 
+                    <>
+                        Not quite right. Correct answer is: 
+                            <span
+                                className='answer__feedback__text__correct__answer'
+                            >
+                                {correctAnswer}
+                            </span>
+                    </>  
+                }
+            </p>
         </>
     )
 }

@@ -1,5 +1,12 @@
 .answer__feedback__text {
     font-size: 2rem;
     font-weight: 300;
-    margin: 3rem;
+    // margin: 3rem;
+    text-align: center;
+
+    &__correct__answer {
+        color: green;
+        font-weight: bold;
+        padding: 0 .5rem;
+    }
 }
