@@ -28,7 +28,11 @@ export const Form = () => {
                 className='form__container__form__field'
             >
 
-                {error.fieldErrors.questions_count ? <Error message={error.fieldErrors.questions_count} /> : ''}
+                <span
+                    className='form__container__form__field__error__message'
+                >
+                    {error.fieldErrors.category ? <Error message={error.fieldErrors.category} /> : ''}
+                </span>
             </div>
 
             <div
@@ -40,7 +44,11 @@ export const Form = () => {
                     callback={handleChange}
                 />
 
-                {error.fieldErrors.category ? <Error message={error.fieldErrors.category} /> : ''}
+                <span
+                    className='form__container__form__field__error__message'
+                >
+                    {error.fieldErrors.questions_count ? <Error message={error.fieldErrors.questions_count} /> : ''}
+                </span>
 
             </div>
 
@@ -54,7 +62,11 @@ export const Form = () => {
                     callback={handleChange}
                 />
 
-                {error.fieldErrors.difficulty ? <Error message={error.fieldErrors.difficulty} /> : ''}
+                <span
+                    className='form__container__form__field__error__message'
+                >
+                    {error.fieldErrors.difficulty ? <Error message={error.fieldErrors.difficulty} /> : ''}
+                </span>
             </div>
 
             <input

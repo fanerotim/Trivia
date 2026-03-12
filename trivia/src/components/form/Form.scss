@@ -19,7 +19,6 @@
 .form__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0 auto;
     gap: .5rem;
 
@@ -32,9 +31,16 @@
             font-size: .8rem;
             color: rgb(71, 71, 71);
         }
+
+        &__error__message {
+            // no styles needed for now but will keep class just in case
+            // adding inline-block without really needing it
+            display: inline-block;
+        }
     }
 
     & input[type="submit"] {
         margin: 50px;
+        align-self: center;
     }
 }
