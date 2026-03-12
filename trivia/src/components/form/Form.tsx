@@ -19,20 +19,22 @@ export const Form = () => {
             className='form__container'
             onSubmit={(e) => handleSubmit(e, categories)} // pass categories, so we can have access to the id of the category we want to query the API for
         >
-            <Select
-                values={categories}
-                label={'category'}
-                callback={handleChange}
-            />
+
             <div
                 className='form__container__form__field'
             >
+                <Select
+                    values={categories}
+                    label={'category'}
+                    callback={handleChange}
+                />
 
                 <span
                     className='form__container__form__field__error__message'
                 >
                     {error.fieldErrors.category ? <Error message={error.fieldErrors.category} /> : ''}
                 </span>
+                
             </div>
 
             <div
