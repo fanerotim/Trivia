@@ -18,7 +18,8 @@ export const Select = (
             <p
                 className='select__label'
             >
-                Choose {label}
+                {/* conditionally rendering label due to the schema used in validator; TODO: fix this */}
+                Choose {label === 'questions_count' ? 'number of questions' : label} 
             </p>
             < div
                 onClick={handleToggle}
