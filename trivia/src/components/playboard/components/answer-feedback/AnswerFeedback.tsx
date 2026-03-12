@@ -1,5 +1,6 @@
 import './AnswerFeedback.scss';
 import { type FeedbackAnswer } from "./types";
+import { decodeHTMLEntity } from '../../utils/decodeHTMLEntity';
 
 export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => {
 
@@ -16,7 +17,7 @@ export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => 
                             <span
                                 className='answer__feedback__text__correct__answer'
                             >
-                                {correctAnswer}
+                                {decodeHTMLEntity(correctAnswer)}
                             </span>
                     </>  
                 }
