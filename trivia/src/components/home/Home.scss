@@ -5,6 +5,7 @@
     justify-content: center;
     text-align: center;
     gap: 1rem;
+    margin-top: 2rem;
     
     &__heading {
         font-family: "Limelight", sans-serif;
@@ -15,7 +16,8 @@
 
     &__description {
         font-weight: 400;
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: rgb(55, 55, 55);
+        max-width: 68%;
     }
 }
