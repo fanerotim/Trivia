@@ -14,7 +14,7 @@ export const Select = (
     } = useSelect();
 
     return (
-        <article>
+        <>
             <p
                 className='select__label'
             >
@@ -51,6 +51,6 @@ export const Select = (
                     </span>
                 ))}
             </div>
-        </article>
+        </>
     )
 }
