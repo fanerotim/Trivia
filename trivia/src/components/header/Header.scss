@@ -1,0 +1,13 @@
+.header {
+    border-bottom: .1px solid rgb(80, 79, 79);
+    padding: 2rem;
+    background-color: rgb(222, 197, 197);
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    &__logo {
+        font-family: "Limelight", sans-serif;
+        color: rgb(14, 13, 13);
+    }
+}
