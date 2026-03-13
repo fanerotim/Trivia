@@ -25,11 +25,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 60%;
+        margin: 0 auto;
         gap: .5rem;
 
         &__label {
             font-size: .8rem;
             color: rgb(71, 71, 71);
+            align-self: start;
         }
 
         &__error__message {
