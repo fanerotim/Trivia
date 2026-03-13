@@ -15,8 +15,7 @@
     align-items: center;
     justify-content: space-between;
     border: 1px solid black;
-    min-width: 250px;
-    max-width: 80%;
+    width: 250px;
     padding: .1rem .7rem;
     cursor: pointer;
 
@@ -43,17 +42,16 @@
     flex-direction: column;
     gap: .5rem;
     height: 0px;
-    min-width: 250px;
-    max-width: 80%;
+    width: 250px;
     visibility: hidden;
     background-color: white;
-    // position: absolute;
+    padding: .1rem 0rem;
     overflow-y: scroll;
     transition: height .2s, visibility .2s;
 
     &__option {
         font-size: .8rem;
-        padding: .5rem 1rem;
+        padding: .5rem .7rem;
         background-color: white;
         color: black;
         transition: background-color .2s, color .2s;
@@ -73,5 +71,6 @@
         overflow-y: scroll;
         visibility: visible;
         transition: height .2s, visibility .2s;
+        padding: 0;
     }
 }
