@@ -9,6 +9,7 @@ import { useHandleGameState } from './hooks/useHandleGameState';
 import { type QuestionData } from '../../requester/types';
 import { AnswerFeedback } from './components/answer-feedback/AnswerFeedback';
 import { Error } from './components/Error/Error';
+import { QuestionsCounter } from './components/questions-counter/QuestionsCounter';
 
 export const Playboard = () => {
 
@@ -48,6 +49,10 @@ export const Playboard = () => {
                         className='playboard__container'
                     >
                         {/* if no more questions there is nothing to decode; do not show anything */}
+                        <QuestionsCounter
+                            currentQuestion={index + 1}
+                            totalQuestions={questions.length}
+                        />
                         <h3
                             className='question__text'
                         >
