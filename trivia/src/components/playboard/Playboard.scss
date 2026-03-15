@@ -37,9 +37,10 @@
 }
 
 .question__text {
-    font-size: 1.8rem;
-    font-weight: 200;
+    font-size: 1.5rem;
+    font-weight: 400;
     text-align: center;
+    color: rgb(29, 28, 28);
 }
 
 .answers__container {
@@ -49,12 +50,13 @@
     gap: 1rem;
 
     &__answer {
-        padding: .8rem 1.2rem;
-        width: 100%;
-        background-color: rgb(255, 247, 247);
-        outline: 1px solid rgb(2, 38, 82);
+        font-size: .9rem;
         font-weight: 300;
         text-align: center;
+        padding: .8rem 1.2rem;
+        // width: 100%;
+        background-color: rgb(255, 245, 245);
+        outline: 1px solid rgb(206, 208, 210);
 
         &:hover {
             cursor: pointer;
