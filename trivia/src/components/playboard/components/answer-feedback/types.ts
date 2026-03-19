@@ -1,4 +1,5 @@
 export type FeedbackAnswer = {
     isCorrect: boolean | null,
-    correctAnswer: string
+    correctAnswer: string,
+    isSubmitted: boolean
 }
