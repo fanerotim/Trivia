@@ -10,18 +10,29 @@ export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => 
                 className="answer__feedback__text"
             >
                 {isCorrect
-                    ? 'Well done!'
-                    : 
+                    ?
+                    <span
+
+                    >
+                        {/* the code &#39; stands for an apostrohpe */}
+                        That&#39;s right!
+                    </span>
+                    :
                     <>
-                        Not quite right. Correct answer is: 
-                            <span
-                                className='answer__feedback__text__correct__answer'
-                            >
-                                {decodeHTMLEntity(correctAnswer)}
-                            </span>
-                    </>  
+                        <span
+                            className='answer__feedback__text'
+                        >
+                            Not quite right. Correct answer is:
+                        </span>
+                        < span
+                            className='answer__feedback__text__correct__answer'
+                        >
+                            {decodeHTMLEntity(correctAnswer)}
+
+                        </span>
+                    </>
                 }
-            </p>
+            </p >
         </>
     )
 }
