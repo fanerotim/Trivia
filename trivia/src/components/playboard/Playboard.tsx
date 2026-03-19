@@ -92,11 +92,12 @@ export const Playboard = () => {
                             </button>}
 
                         {
-                            answerState.isSubmitted
-                            &&
+                            // answerState.isSubmitted
+                            // &&
                             <AnswerFeedback
                                 isCorrect={answerState.isCorrect}
                                 correctAnswer={correctAnswer}
+                                isSubmitted={answerState.isSubmitted}
                             />
                         }
 
