@@ -1,12 +1,25 @@
+.answer__feedback__container {
+    opacity: 0;
+}
+
+.answer__feedback__container__submitted {
+    opacity: 1;
+    transition: opacity .7s;
+}
+
 .answer__feedback__text {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 100;
     // margin: 3rem;
     text-align: center;
 
     &__correct__answer {
-        color: green;
-        font-weight: bold;
-        padding: 0 .5rem;
+        display: block;
+        font-size: .9rem;
+        font-weight: 400;
+        color: rgb(1, 32, 1);
+        padding: .3rem .7rem;
+        border-radius: .1rem;
+        margin: .2rem;
     }
 }

@@ -2,10 +2,15 @@ import './AnswerFeedback.scss';
 import { type FeedbackAnswer } from "./types";
 import { decodeHTMLEntity } from '../../utils/decodeHTMLEntity';
 
-export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => {
+export const AnswerFeedback = ({ isCorrect, correctAnswer, isSubmitted }: FeedbackAnswer) => {
 
     return (
-        <>
+        <div
+            className={
+                isSubmitted 
+                    ? 'answer__feedback__container answer__feedback__container__submitted'
+                    : 'answer__feedback__container'}
+        >
             <p
                 className="answer__feedback__text"
             >
@@ -22,7 +27,7 @@ export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => 
                         <span
                             className='answer__feedback__text'
                         >
-                            Not quite right. Correct answer is:
+                            Close, but incorrect. Right answer is:
                         </span>
                         < span
                             className='answer__feedback__text__correct__answer'
@@ -33,6 +38,6 @@ export const AnswerFeedback = ({ isCorrect, correctAnswer }: FeedbackAnswer) => 
                     </>
                 }
             </p >
-        </>
+        </div>
     )
 }
