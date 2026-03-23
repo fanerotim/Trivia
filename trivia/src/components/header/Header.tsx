@@ -15,10 +15,14 @@ export const Header = () => {
             </h1>
 
             <div
-                className='header__dark__light__mode__icons__container'
+                className='header__theme__icon__container'
             >
-                <MdLightMode />
-                <MdDarkMode />
+                <MdLightMode 
+                    className='header__theme__icon__container__light__mode'
+                />
+                <MdDarkMode 
+                    className='header__theme__icon__container__dark__mode'
+                />
             </div>
         </header>
     )
