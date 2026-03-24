@@ -6,15 +6,22 @@ import { Home } from './components/home/Home';
 import { Playboard } from './components/playboard/Playboard';
 import { GameResults } from './components/game-results/GameResults';
 import { Footer } from './components/footer/Footer';
+import { useThemeContext } from './context/useThemeContext';
 
 function App() {
+
+  const { theme } = useThemeContext();
 
   return (
     <>
       <div
-        className='app__container'
+        className={`'app__container' 
+        ${theme === 'light' 
+          ? 'app__container__light' 
+          : 'app__container__dark'}`
+        }
       >
-        <Header/>
+        <Header />
         <Routes>
           <Route index element={<Home />} />
           <Route path='/playboard' element={<Playboard />}></Route>

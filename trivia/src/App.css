@@ -4,3 +4,7 @@
     grid-template-rows: auto 1fr auto;
     gap: 3rem;
 }
+
+.app__container__dark {
+    background-color: black;
+}
