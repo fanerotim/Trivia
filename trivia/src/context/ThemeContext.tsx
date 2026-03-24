@@ -4,11 +4,15 @@ import type { ThemeContextType, Theme } from "./themeContextType";
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
-
-    const storedTheme = localStorage.getItem('theme');
-    const initialTheme = storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'light';
         
-    const [theme, setTheme] = useState<Theme>(initialTheme);
+    const [theme, setTheme] = useState<Theme>(() => {
+        const persistedTheme = localStorage.getItem('theme');
+
+        if (persistedTheme === 'dark' || persistedTheme === 'light') {
+            return persistedTheme;
+        }
+        return 'light';
+    });
 
     useEffect(() => {
         localStorage.setItem('theme', theme)
