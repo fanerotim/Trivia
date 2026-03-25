@@ -7,7 +7,7 @@ export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
         
     const [theme, setTheme] = useState<Theme>(() => {
         const persistedTheme = localStorage.getItem('theme');
-
+        
         if (persistedTheme === 'dark' || persistedTheme === 'light') {
             return persistedTheme;
         }
@@ -16,6 +16,7 @@ export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
 
     useEffect(() => {
         localStorage.setItem('theme', theme)
+        document.body.setAttribute('data-theme', theme)
     }, [theme])
 
     const updateTheme = (value: Theme) => {
