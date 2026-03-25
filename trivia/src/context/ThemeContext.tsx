@@ -16,7 +16,7 @@ export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
 
     useEffect(() => {
         localStorage.setItem('theme', theme)
-        document.body.setAttribute('data-theme', theme)
+        document.documentElement.setAttribute('data-theme', theme)
     }, [theme])
 
     const updateTheme = (value: Theme) => {
