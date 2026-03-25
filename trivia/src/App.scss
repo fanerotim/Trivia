@@ -1,0 +1,14 @@
+.app__container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    gap: 3rem;
+}
+
+// .app__container__dark {
+//     background-color: black;
+// }
+
+body[data-theme="dark"] {
+    background-color: purple;
+}

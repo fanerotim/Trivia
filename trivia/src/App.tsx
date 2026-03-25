@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import './App.css';
+import './App.scss';
 import { Header } from './components/header/Header';
 import { Home } from './components/home/Home';
 import { Playboard } from './components/playboard/Playboard';
@@ -15,11 +15,7 @@ function App() {
   return (
     <>
       <div
-        className={`'app__container' 
-        ${theme === 'light' 
-          ? 'app__container__light' 
-          : 'app__container__dark'}`
-        }
+        className={'app__container'}
       >
         <Header />
         <Routes>
