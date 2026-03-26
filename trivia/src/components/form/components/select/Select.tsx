@@ -28,7 +28,8 @@ export const Select = (
                 <p
                     className='select__container__selected__option'
                 >
-                    {optionValue}
+                    {/* check below comment to see why option value is rendered as it is here - repeating pattern, definitely needs to be optimized / changed */}
+                    {optionValue[0].toUpperCase() + optionValue.substring(1)}
                 </p>
                 {isSelectOpen
                     ? <span className='select__container__open__btn'></span>
@@ -47,7 +48,9 @@ export const Select = (
                         key={v.id}
                         className={'select__options__container__option'}
                     >
-                        {v.name}
+                        {/* difficulty category needs to have its first letter capitalized, which is why I am doing the below gymnastics. 
+                        TODO: not the best solution - optimize it  */}
+                        {v.name[0].toUpperCase() + v.name.substring(1)} 
                     </span>
                 ))}
             </div>
