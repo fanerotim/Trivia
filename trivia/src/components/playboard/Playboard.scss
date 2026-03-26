@@ -69,6 +69,7 @@
 .correct_answer,
 .correct_answer:hover {
     background-color: rgb(59, 188, 59);
+    color: var(--text-color-primary);
     border: none;
     box-shadow: none;
 }
@@ -76,6 +77,7 @@
 .incorrect_answer,
 .incorrect_answer:hover {
     background-color: rgb(239, 68, 68);
+    color: var(--text-color-primary);
     border: none;
     // font-weight: 400;
     box-shadow: none;
