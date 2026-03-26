@@ -24,6 +24,12 @@ export const requester = async (
     const apiResponseCode = data.response_code
     // if token is invalid e.g. response_code !== 0
     if (apiResponseCode !== 0) {
+
+        // TODO: add error handling as currenly there is no error handling for response_codes = failed request
+        if (apiResponseCode === 2) {
+            console.log('There was an invalid parameter sent with the request!')
+        }
+
         resetToken();
     }
 
