@@ -7,6 +7,10 @@
     --submit-btn-border-color: white;
     --submit-btn-onhover-bg-color: rgb(246, 246, 246);
     --submit-btn-onhover-text-color: rgb(13, 13, 13);
+
+    // .asnwer_container cell
+    --answer-cell-bg-color: white;
+    --answer-cell-text-color: black;
 }
 
 :root[data-theme="light"] {
@@ -18,6 +22,10 @@
     --submit-btn-border-color: black;
     --submit-btn-onhover-bg-color: rgb(17, 17, 17);
     --submit-btn-onhover-text-color: rgb(255, 255, 255);
+
+    // .answer_container cell
+    --answer-cell-bg-color: black;
+    --answer-cell-text-color: white;
 }
 
 .app__container {

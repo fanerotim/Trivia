@@ -21,7 +21,7 @@
     font-size: 1.5rem;
     font-weight: 400;
     text-align: center;
-    color: rgb(29, 28, 28);
+    color: var(--text-color-primary);
 }
 
 .answers__container {
@@ -36,14 +36,17 @@
         text-align: center;
         padding: .8rem 1.2rem;
         // width: 100%;
-        background-color: rgb(255, 245, 245);
+        // background-color: rgb(255, 245, 245);
+        background-color: var(--answer-cell-bg-color);
+        color: var(--answer-cell-text-color);
         outline: 1px solid rgb(206, 208, 210);
 
         &:hover {
             cursor: pointer;
             box-shadow: .4rem .4rem .2rem black;
             // outline: 1px solid transparent;
-            background-color: white;
+            background-color: var(--bg-color);
+            color: var(--text-color-primary);
             transition: box-shadow .4s, outline .4s, background-color .4s;
         }
     }
