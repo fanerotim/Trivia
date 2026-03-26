@@ -59,7 +59,7 @@ export const useFormHandler = (initialValues: FormValues) => {
             })
         } catch (err) {
             // update error state to the returned error
-            setError((_) => err as ErrorData)
+            setError((_) => err as ErrorData);
         }
     }
 

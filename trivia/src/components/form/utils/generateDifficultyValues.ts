@@ -11,7 +11,7 @@ export const generateDifficultyValues = () => {
             id: i + 1,
             name: difficulties[i]
         }
-
+        
         difficultyValues.push(current);
     }
 
