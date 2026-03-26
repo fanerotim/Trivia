@@ -43,7 +43,7 @@ export const Playboard = () => {
             {
                 questions.length < 1
                     ?
-                    <Error />
+                    <Error message={'Unfortunately, we encountered an error - please try again.'}/> //hardcoding the error message for now
                     :
                     <div
                         className='playboard__container'

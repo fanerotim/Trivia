@@ -1,7 +1,7 @@
 import './Error.scss';
 import { useNavigate } from 'react-router-dom';
 
-export const Error = () => {
+export const Error = ({ message }: { message: string }) => {
 
     const navigate = useNavigate();
 
@@ -10,8 +10,14 @@ export const Error = () => {
     }
 
     return (
-        <div>
-            <h1>Error!</h1>
+        <div
+            className='request__failed__error'
+        >
+            <h1
+                className='request__failed__error__message'
+            >
+                {message}
+            </h1>
             <button
                 onClick={submitAgainHandler}
                 className='submit__btn'

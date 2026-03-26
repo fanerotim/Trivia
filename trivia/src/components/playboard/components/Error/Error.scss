@@ -1,0 +1,11 @@
+.request__failed__error {
+    text-align: center;
+    margin: 2rem;
+
+    &__message {
+        font-size: 1.9rem;
+        font-weight: 200;
+        color: var(--text-color-primary);
+        margin-bottom: 2rem;
+    }
+}
