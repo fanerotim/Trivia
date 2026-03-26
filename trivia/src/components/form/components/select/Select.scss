@@ -6,7 +6,7 @@
 
 .select__label {
     font-size: .8rem;
-    color: rgb(61, 61, 61);
+    color: var(--text-color-primary);
     margin-bottom: .3rem;
 }
 
@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
+    border: 1px solid var(--submit-btn-border-color); //reusing border color
     width: 250px;
     padding: .1rem .7rem;
     cursor: pointer;
@@ -22,16 +22,17 @@
     &__selected__option {
         font-size: .8rem;
         padding: .3rem .5rem;
+        color: var(--text-color-primary)
     }
 
     &__open__btn {
-        border-bottom: 8px solid black;
+        border-bottom: 8px solid var(--text-color-primary);
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
     }
 
     &__close__btn {
-        border-top: 8px solid black;
+        border-top: 8px solid var(--text-color-primary);
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
     }
@@ -44,7 +45,7 @@
     height: 0px;
     width: 250px;
     visibility: hidden;
-    background-color: white;
+    background-color: var(--bg-color);
     padding: .1rem 0rem;
     overflow-y: scroll;
     transition: height .2s, visibility .2s;
@@ -52,25 +53,25 @@
     &__option {
         font-size: .8rem;
         padding: .5rem .7rem;
-        background-color: white;
-        color: black;
+        // background-color: var(--bg-color);
+        color: var(--text-color-primary);
         transition: background-color .2s, color .2s;
 
         &:hover {
             cursor: pointer;
-            background-color: black;
-            color: white;
+            background-color: var(--submit-btn-onhover-bg-color);
+            color: var(--submit-btn-onhover-text-color);
             transition: background-color .2s, color .2s;
         }
     }
 
     &__open {
+        padding: 0;
         height: 110px;
-        border: 1px solid rgb(45, 44, 44);
+        border: 1px solid var(--text-color-primary);
         border-top: none;
         overflow-y: scroll;
         visibility: visible;
         transition: height .2s, visibility .2s;
-        padding: 0;
     }
 }

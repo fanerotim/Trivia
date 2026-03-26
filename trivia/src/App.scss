@@ -1,6 +1,7 @@
 :root[data-theme="dark"] {
     --bg-color: rgb(31, 29, 29);
-    --text-color: white;
+    --text-color-primary: white;
+    --text-color-secondary: rgb(194, 192, 192);
     
     // .submit_btn
     --submit-btn-border-color: white;
@@ -10,7 +11,8 @@
 
 :root[data-theme="light"] {
     --bg-color: white;
-    --text-color: black;
+    --text-color-primary: black;
+    --text-color-secondary: rgb(31, 30, 30);
     
     // .submit_btn
     --submit-btn-border-color: black;
@@ -37,7 +39,7 @@
     border: 1px solid var(--submit-btn-border-color);
     border-radius: .1rem;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: var(--text-color-primary);
     transition: background-color .3s, color .3s;
 
     &:hover {
