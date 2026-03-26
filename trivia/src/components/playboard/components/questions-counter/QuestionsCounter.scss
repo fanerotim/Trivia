@@ -4,18 +4,18 @@
         width: 20px;
         height: 50px;
         background-color: black;
-        color: black;
+        // color: var(--text-color-primary);
     }
 
     &__text {
         text-align: end;
-        font-size: .8rem;
-        color: rgb(142, 140, 140);
+        font-size: .7rem;
+        color: var(--text-color-secondary);
 
         &__currentQuestion,
         &__totalQuestions {
-            font-size: .9rem;
-            color: rgb(26, 2, 2);
+            font-size: .99rem;
+            color: var(--text-color-primary);
             padding: 0 .2rem;
         }
     }

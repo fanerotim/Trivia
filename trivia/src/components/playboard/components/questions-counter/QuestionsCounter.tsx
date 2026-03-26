@@ -12,7 +12,7 @@ export const QuestionsCounter = ({currentQuestion, totalQuestions}: CurrentAndTo
                 <span
                     className="questions__counter__container__text__currentQuestion"
                 >
-                    {currentQuestion}
+                    Question {currentQuestion}
                 </span>
                 out of
                 <span
