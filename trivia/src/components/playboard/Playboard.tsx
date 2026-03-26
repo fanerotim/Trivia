@@ -43,7 +43,7 @@ export const Playboard = () => {
             {
                 questions.length < 1
                     ?
-                    <Error message={'Unfortunately, we encountered an error - please try again.'}/> //hardcoding the error message for now
+                    <Error message={'Unfortunately, we encountered an error - please try again.'} /> //hardcoding the error message for now
                     :
                     <div
                         className='playboard__container'
@@ -81,15 +81,19 @@ export const Playboard = () => {
                         </div>
 
                         {
-                            answerState.userAnswer.trim()
-                            && !answerState.isSubmitted
+                            !answerState.isSubmitted
                             &&
                             <button
                                 onClick={handleCheckAnswer}
                                 className='submit__btn check__answer__btn'
+                                disabled={
+                                    !answerState.userAnswer.trim()
+                                    && !answerState.isSubmitted
+                                }
                             >
                                 Check answer
-                            </button>}
+                            </button>
+                        }
 
                         {
                             // answerState.isSubmitted
