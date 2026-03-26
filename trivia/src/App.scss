@@ -1,11 +1,21 @@
 :root[data-theme="dark"] {
-    --bg-color: white;
-    --text--color: black;
+    --bg-color: rgb(31, 29, 29);
+    --text-color: white;
+    
+    // .submit_btn
+    --submit-btn-border-color: white;
+    --submit-btn-onhover-bg-color: rgb(246, 246, 246);
+    --submit-btn-onhover-text-color: rgb(13, 13, 13);
 }
 
 :root[data-theme="light"] {
-    --bg-color: black;
-    --text--color: white;
+    --bg-color: white;
+    --text-color: black;
+    
+    // .submit_btn
+    --submit-btn-border-color: black;
+    --submit-btn-onhover-bg-color: rgb(17, 17, 17);
+    --submit-btn-onhover-text-color: rgb(255, 255, 255);
 }
 
 .app__container {
@@ -13,7 +23,26 @@
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
     gap: 3rem;
-
     background-color: var(--bg-color);
 }
 
+// SHARED STYLES
+
+.submit__btn {
+    all: unset;
+    cursor: pointer;
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    // margin-top: 1rem;
+    border: 1px solid var(--submit-btn-border-color);
+    border-radius: .1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color .3s, color .3s;
+
+    &:hover {
+        background-color: var(--submit-btn-onhover-bg-color);
+        color: var(--submit-btn-onhover-text-color);
+        transition: background-color .3s, color .3s;
+    }
+}
