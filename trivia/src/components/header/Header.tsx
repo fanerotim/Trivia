@@ -2,10 +2,16 @@ import './Header.scss';
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import { useThemeContext } from '../../context/useThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
 
     const { theme, updateTheme } = useThemeContext();
+    const navigate = useNavigate();
+
+    const logoClickHandler = () => {
+        navigate('/');
+    }
 
     return (
         <header
@@ -13,6 +19,7 @@ export const Header = () => {
         >
 
             <h1
+                onClick={logoClickHandler}
                 className='header__logo'
             >
                 Brainy
