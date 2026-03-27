@@ -10,6 +10,7 @@ import { type QuestionData } from '../../requester/types';
 import { AnswerFeedback } from './components/answer-feedback/AnswerFeedback';
 import { Error } from './components/Error/Error';
 import { QuestionsCounter } from './components/questions-counter/QuestionsCounter';
+import { IoCheckmark } from "react-icons/io5";
 
 export const Playboard = () => {
 
@@ -74,6 +75,19 @@ export const Playboard = () => {
                                         }
                                     >
                                         {decodeHTMLEntity(a)}
+
+                                        <span
+                                            className={
+                                                `answers__container__answer__checkmark 
+                                                ${!answerState.isCorrect && answerState.isSubmitted
+                                                && a === correctAnswer
+                                                ? 'answers__container__answer__checkmark__visible'
+                                                : 'answers__container__answer__checkmark__hidden'}`}
+                                        >
+                                            <IoCheckmark/>
+                                        </span>
+
+                                        
                                     </p>
                                 )
                             })}
