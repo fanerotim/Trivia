@@ -20,7 +20,10 @@ export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
     }, [theme])
 
     const updateTheme = (value: Theme) => {
-        setTheme(value);
+        
+        document.startViewTransition(() => {
+            setTheme(value);
+        })
     }
 
     return (
