@@ -21,6 +21,12 @@ export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
 
     const updateTheme = (value: Theme) => {
         
+        // fallback for browsers that do not support startViewTransition
+        if (!document.startViewTransition()) {
+            setTheme(value);
+            return;
+        }
+
         document.startViewTransition(() => {
             setTheme(value);
         })
