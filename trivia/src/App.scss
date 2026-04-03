@@ -28,6 +28,24 @@
     --answer-cell-text-color: white;
 }
 
+::view-transition-old(root) {
+    animation-delay: 700ms;
+}
+
+::view-transition-new(root) {
+    animation: move-in 400ms;
+}
+
+@keyframes move-in {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
 .app__container {
     display: grid;
     min-height: 100vh;
